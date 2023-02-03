@@ -1,0 +1,48 @@
+.modal__link {
+  @extend button;
+  @extend .button--primary;
+  text-decoration: none;
+  display: block;
+  margin-top: $l-size;
+  margin: auto;
+}
+
+.ModalOverlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.Modal {
+  background: var(--background-color) !important;
+  padding: 50px !important;
+  border-radius: 6px;
+  position: relative;
+  // z-index: 9999;
+  // position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  // width: 80rem;
+
+  @include mobile {
+    padding: $l-size;
+  }
+}
+
+.ModalContainer {
+  // width: 199;
+}
+
+.ModalCloseButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff2e4f !important;
+}
+
+.ModalCloseIcon {
+  path {
+    fill: #fff;
+  }
+}
