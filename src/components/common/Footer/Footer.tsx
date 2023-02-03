@@ -5,8 +5,8 @@ const Footer: React.FC = () => (
     <span>
       Made by
       &nbsp;
-      <a href="https://juliusguevarra.com" target="_blank">
-        Julius Guevarra
+      <a href="https://parthahuja.netlify.com" target="_blank">
+        Parth Ahuja
       </a>
       &nbsp;
       with
