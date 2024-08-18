@@ -7,7 +7,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Favorites = () => {
-  useDocumentTitle('My Favorites | MOVX');
+  useDocumentTitle('My Favorites | Kino');
   const favorites = useSelector((state: IRootState) => state.favorites);
 
   return (
