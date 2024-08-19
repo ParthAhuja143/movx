@@ -5,4 +5,4 @@ export * from './home';
 export * from './movie';
 export * from './people';
 export * from './search';
-export * from './tv';
+// export * from './tv';

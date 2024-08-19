@@ -13,6 +13,7 @@
     "axios": "^0.21.1",
     "history": "4.10.0",
     "normalize.css": "^8.0.1",
+    "or": "^0.2.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-collapsible": "^2.8.3",

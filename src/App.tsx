@@ -44,7 +44,7 @@ const AppRouter = () => (
             path={route.TRENDING}
           />
           <Route
-            component={withProgress(view.TvShows)}
+            // component={withProgress(view.TvShows)}
             exact={true}
             path={route.TV}
           />
@@ -74,12 +74,12 @@ const AppRouter = () => (
             path={route.PEOPLE}
           />
           <Route
-            component={withProgress(view.ViewPerson)}
+            // component={withProgress(view.ViewPerson)}
             exact={true}
             path={route.VIEW_PEOPLE}
           />
           <Route
-            component={withProgress(view.Pictures)}
+            // component={withProgress(view.Pictures)}
             exact={true}
             path={route.VIEW_PEOPLE_PROFILE}
           />
@@ -94,7 +94,7 @@ const AppRouter = () => (
             path={route.GENRE}
           />
           <Route
-            component={withProgress(view.SelectedGenre)}
+            // component={withProgress(view.SelectedGenre)}
             exact={true}
             path={route.VIEW_GENRE}
           />
