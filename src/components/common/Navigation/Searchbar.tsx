@@ -74,7 +74,6 @@ const Searchbar: React.FC<IProps> = ({ closeSearchForMobile }) => {
         readOnly={isLoading}
         onBlur={onBlurChange}
         onChange={onInputChange}
-        onFocus={onFocusChange}
         onKeyPress={onKeyEnter}
         placeholder="Search"
         ref={searchInputRef}

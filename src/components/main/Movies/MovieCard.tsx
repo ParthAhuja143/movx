@@ -68,16 +68,11 @@ const MovieCard: React.FC<IProps> = ({ movie, category, isLoading }) => {
             </p>
             {movie && (
               <>
-                <button
+                <button 
                   className="button--add-favorite"
                   onClick={() => addToFavorites(movie)}
-                >
-                  <i
-                    className="fa fa-heart"
-                    style={{
-                      color: isFavorite(movie.id) ? '#ff2e4f' : '#5b6166'
-                    }} />
-
+                > 
+                <span style={{ color: isFavorite(movie.id) ? '#ff2e4f' : '#5b6166' }}>❤</span>
                 </button>
                 <div className="tooltip">
                   <span>{isFavorite(movie.id) ? 'Remove from favorites' : 'Add To Favorites'}</span>
