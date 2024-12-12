@@ -23,14 +23,13 @@ const SearchMovieTab = () => {
   return (movies && movies.results.length !== 0) ? (
     <>
       <MovieList movies={movies.results} />
-      <CustomPagination
+      <Pagination
         activePage={movies.page}
         itemsCountPerPage={1}
         onChange={handlePageChange}
         pageRangeDisplayed={10}
         totalItemsCount={movies.total_pages}
         totalPage={movies.total_pages}
-        infiniteScroll={true}
       />
     </>
   ) : (
