@@ -1,4 +1,5 @@
 import { Container, Filter, Pagination } from '@app/components/common';
+import CustomPagination from '@app/components/common/Pagination/Pagination';
 import { MovieList } from '@app/components/main';
 import { numberWithCommas } from '@app/helpers';
 import { useDidMount, useDocumentTitle, usePageSaver } from '@app/hooks';
@@ -22,7 +23,7 @@ const DiscoverMovies = () => {
       dispatch(fetchDiscoverMovies(currentPage));
     }
 
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
   }, [filter, discoverMovies?.page]);
 
   const handlePageChange = (page: number) => {
@@ -48,13 +49,14 @@ const DiscoverMovies = () => {
         templateCount={10}
       />
       {discoverMovies && (
-        <Pagination
+        <CustomPagination
           activePage={discoverMovies.page}
           itemsCountPerPage={1}
           onChange={handlePageChange}
           pageRangeDisplayed={10}
           totalItemsCount={discoverMovies.total_pages}
           totalPage={discoverMovies.total_pages}
+          infiniteScroll={true}
         />
       )}
     </Container>

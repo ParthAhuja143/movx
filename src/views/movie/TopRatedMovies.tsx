@@ -1,4 +1,5 @@
 import { Container, Pagination } from '@app/components/common';
+import CustomPagination from '@app/components/common/Pagination/Pagination';
 import { MovieList } from '@app/components/main';
 import { numberWithCommas } from '@app/helpers/helperFunctions';
 import { useDocumentTitle, usePageSaver } from '@app/hooks';
@@ -22,9 +23,9 @@ const TopRatedMovies = () => {
     }
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [topRatedMovies?.page]);
+  //useEffect(() => {
+  //  window.scrollTo(0, 0);
+  //}, [topRatedMovies?.page]);
 
   const handlePageChange = (page: number) => {
     if (topRatedMovies?.page !== page && !isLoading) {
@@ -46,13 +47,14 @@ const TopRatedMovies = () => {
         templateCount={10}
       />
       {topRatedMovies && (
-        <Pagination
+        <CustomPagination
           activePage={topRatedMovies.page}
           itemsCountPerPage={1}
           onChange={handlePageChange}
           pageRangeDisplayed={10}
           totalItemsCount={topRatedMovies.total_pages}
           totalPage={topRatedMovies.total_pages}
+          infiniteScroll={true}
         />
       )}
     </Container>

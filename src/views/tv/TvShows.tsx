@@ -1,4 +1,5 @@
 import { Container, Filter, Pagination } from '@app/components/common';
+import CustomPagination from '@app/components/common/Pagination/Pagination';
 import withLoader from '@app/components/hoc/withLoader';
 import { MovieList } from '@app/components/main';
 import { numberWithCommas } from '@app/helpers';
@@ -46,13 +47,14 @@ const TvShows = () => {
         templateCount={10}
       />
       {tvShows && (
-        <Pagination
+        <CustomPagination
           activePage={tvShows.page}
           itemsCountPerPage={1}
           onChange={handlePageChange}
           pageRangeDisplayed={10}
           totalItemsCount={tvShows.total_pages}
           totalPage={tvShows.total_pages}
+          infiniteScroll={true}
         />
       )}
     </Container>

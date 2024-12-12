@@ -1,4 +1,5 @@
 import { Pagination } from '@app/components/common';
+import CustomPagination from '@app/components/common/Pagination/Pagination';
 import { MovieList } from '@app/components/main';
 import { searchTvShows } from '@app/redux/actions';
 import { IRootState } from '@app/types/types';
@@ -22,13 +23,14 @@ const SearchTvTab = () => {
   return tvShows && tvShows.results.length !== 0 ? (
     <>
       <MovieList category="tv" movies={tvShows.results} />
-      <Pagination
+      <CustomPagination
         activePage={tvShows.page}
         itemsCountPerPage={1}
         onChange={handlePageChange}
         pageRangeDisplayed={10}
         totalItemsCount={tvShows.total_pages}
         totalPage={tvShows.total_pages}
+        infiniteScroll={true}
       />
     </>
   ) : (

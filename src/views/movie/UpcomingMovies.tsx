@@ -1,10 +1,11 @@
 import { Container, Pagination } from '@app/components/common';
+import CustomPagination from '@app/components/common/Pagination/Pagination';
 import { MovieList } from '@app/components/main';
 import { numberWithCommas } from '@app/helpers/helperFunctions';
 import { useDocumentTitle, usePageSaver } from '@app/hooks';
 import { fetchUpcomingMovies } from '@app/redux/actions';
 import { IRootState } from '@app/types/types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const UpcomingMovies = () => {
@@ -17,20 +18,24 @@ const UpcomingMovies = () => {
   const queryString = '/movie/upcoming';
 
   useDocumentTitle('Upcoming Movies | MOVX');
+
+  // Initial fetch
   useEffect(() => {
     if (!upcomingMovies) {
       dispatch(fetchUpcomingMovies(currentPage));
     }
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [upcomingMovies?.page]);
+  // Scroll to top when page changes
+  //useEffect(() => {
+  //  window.scrollTo(0, 0);
+  //}, [upcomingMovies?.page]);
 
+  // Handle page change for both pagination and infinite scroll
   const handlePageChange = (page: number) => {
     if (upcomingMovies?.page !== page && !isLoading) {
       dispatch(fetchUpcomingMovies(page));
-      setCurrentPage(page)
+      setCurrentPage(page);
     }
   };
 
@@ -47,13 +52,15 @@ const UpcomingMovies = () => {
         templateCount={10}
       />
       {upcomingMovies && (
-        <Pagination
+        <CustomPagination
           activePage={upcomingMovies.page}
           itemsCountPerPage={1}
-          onChange={handlePageChange}
           pageRangeDisplayed={10}
-          totalItemsCount={upcomingMovies.total_pages}
           totalPage={upcomingMovies.total_pages}
+          onChange={handlePageChange}
+          totalItemsCount={upcomingMovies.total_pages}
+          infiniteScroll={true}
+          //isLoading={isLoading}
         />
       )}
     </Container>
